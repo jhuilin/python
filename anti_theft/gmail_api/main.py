@@ -37,11 +37,11 @@ import send_email
 import cv2
 
 cap = cv2.VideoCapture(0)
-ret, frame = cap.read()   
-cv2.imwrite('pic.jpg', frame) 
-cap.release()                             
-sender = "jianhuilin1124@gmail.com"
-to = ['jianhuilin1124@gmail.com']
+ret, frame = cap.read()
+cv2.imwrite('pic.jpg', frame)
+cap.release()
+sender = "sender@gmail.com"
+to = ['receiver@gmail.com']
 subject = "Subject"
 msg = "message"
 attachment = 'pic.jpg'
