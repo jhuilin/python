@@ -68,15 +68,6 @@ class send_email:
       return {'raw': base64.urlsafe_b64encode(message.as_bytes()).decode()}
 
     def send_message(self, user_id, message):
-      """Send an email message.
-      Args:
-        service: Authorized Gmail API service instance.
-        user_id: User's email address. The special value "me"
-        can be used to indicate the authenticated user.
-        message: Message to be sent.
-      Returns:
-        Sent Message.
-      """
       try:
         message = (self.service.users().messages().send(userId=user_id, body=message)
                    .execute())

@@ -34,11 +34,18 @@ http = credentials.authorize(httplib2.Http())
 service = discovery.build('gmail', 'v1', http=http)
 
 import send_email
-sender = "jianhuilin1124@yahoo.com"
-to = ['476120405@qq.com','heik922@yahoo.com.hk','jiade.dai95@qmail.cuny.edu']
-subject = "Cs 340"
-msg = "https://www.sanfoundry.com/operating-system-questions-answers-basics/"
+import cv2
+
+cap = cv2.VideoCapture(0)
+ret, frame = cap.read()   
+cv2.imwrite('pic.jpg', frame) 
+cap.release()                             
+sender = "jianhuilin1124@gmail.com"
+to = ['jianhuilin1124@gmail.com']
+subject = "Subject"
+msg = "message"
+attachment = 'pic.jpg'
 
 sendInst = send_email.send_email(service)
-message = sendInst.create_message(sender,to,subject,msg)
+message = sendInst.create_message_with_attachment(sender,to,subject,msg,attachment)
 sendInst.send_message('me',message)
